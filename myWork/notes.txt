@@ -1,0 +1,85 @@
+In a build step:
+1. Transpilation occurs:
+	a. JSX gets converted to JS using Babel or SWC 
+	b. Modern features are converted to older versions for compatibility.
+
+2. Bundling occurs:
+	a. All your JS files, CSS, and images are combined (or bundled) 
+		into a few files, often using Webpack, Rollup, or esbuild.
+	b. This reduces the number of HTTP requests your app makes.
+
+3. Optimization:
+	a. Removal of extra spaces and comments.
+
+Think of this being the main step to convert JSX to JS.
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+We add the two scripts in our html because:
+1. The first package is the universal interface for everything React, like React Native,
+	React 360, React 3D and so on.
+2. The second package is for the DOM.
+
+Why use unpkg:
+- We use node to get packages and use them locally.
+- By using unpkg, we can just get the packages on the client side.
+- It is a CDN that does all the package handling at the client side.
+
+npx serve looks for index.html, if not found, it will return root folder
+
+const App = () => {
+	return (React.createElement("div", 
+		null,
+		React.createElement("h1", null, "Padre Gino's")
+	));
+}
+
+App => component
+Element/instance
+Component/class
+
+const Pizza = () => {
+	return React.createElement("div", null, [
+		React.createElement("h1", null, "The Pepperoni Pizza"),
+		React.createElement("p", null, "Mozzarella Cheese, Pepperoni")
+	]);
+}
+
+The Pizza component above creates a div, and within that div, there is a h1 tag,
+	and a p tag right below, as in, they are siblings, not parent-children.
+
+Why a package.json:
+You can save the tool you are using along with its version.
+This way you do not have to upload your requirements to your repo.
+Also people can use the same exact version you have, and if any security issues happen, 
+	then you can get the patched version instantly.
+
+devDependencies in package.json:
+	These only get installed in development environments.
+
+Prettier:
+	Automatically formats code
+
+ESLint:
+	Enforces code styles/ rules, like don't use do .. while and so on.
+
+Don't push your node_modules folder. Your package.json is enough for the 
+	user to download all the required dependencies from. Push the node_modules
+	folder will add extra weight to your project.
+
+Vite (Pronounced Veet):
+	This is a build tool, which uses rollup in the background.
+	Veet needs ES modules to work, so in our script tag in index.html,
+		we add the type="module" attribute.
+		
+We add the following commands to our package.json:
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+
+The first rule is such that when we run npm run dev, it automatically refers to vite.
+
+The second rule is so that vite is the one responsible for build our project.
+
+The third rule is because sometimes in dev mode our project runs fine, but in production
+	due to build issues, it causes errors. preview lets you view it from a production pov.

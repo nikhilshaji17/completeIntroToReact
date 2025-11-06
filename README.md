@@ -1,3 +1,2 @@
-1. Go into resourcesRepo directory
-2. This repo contains all the work done by the instructor throughout the course.
-3. Within resourcesRepo, there is another repo called myWork. This is my work.
+All the folders are done by the instructor, to keep track of our progress.
+My work is done in the folder myWork.

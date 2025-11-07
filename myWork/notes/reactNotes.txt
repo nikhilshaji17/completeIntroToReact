@@ -1,0 +1,12 @@
+Hooks:
+Allows interactivity and side effects in our code.
+
+Note: Try to keep your functions pure, and avoid doing heavy rendering logic in your components.
+	Why? React has its own logic to re-render components based on changes it notices.
+	If a regularly used component has a lot of logic, it will take more time to render on change.
+
+Anything that starts with use.. is a hook.
+
+Never use Hooks inside conditionals. This would mess up React's rendering order.
+Never use inside for, while loops, if conditions and so on.
+

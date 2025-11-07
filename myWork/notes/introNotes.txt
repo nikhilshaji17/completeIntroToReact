@@ -83,3 +83,39 @@ The second rule is so that vite is the one responsible for build our project.
 
 The third rule is because sometimes in dev mode our project runs fine, but in production
 	due to build issues, it causes errors. preview lets you view it from a production pov.
+
+Vite always looks for the index.html file to serve to the user.
+
+JSX:
+This allows you to write HTML in your Javascript.
+const Pizza = (props) => {
+	return (
+		<div className="pizza">
+			<h1>{props.name}</h1>
+			<p>{props.description}</p>
+		</div>
+	);
+}
+
+export default Pizza;
+
+The above is an example of a JSX object. 
+NOTE: Instead of class like in HTML, we use className (since class is reserved for JS classes)
+You can put any JS expression within the tags. This means you can use something like:
+	{props.name.toUpperCase()}
+
+const App = () => {
+	return (
+		<div>
+			<h1>Padre Gino's - Order Now</h1>
+			<Pizza name="Pepperoni" description="pep, cheese n stuff" />
+		</div>
+	);
+};
+
+Notice the h1 is a lower case tag, and our component is upper case. This is compulsory in React, to
+	diffrentiate a DOM element from our own.
+
+In our Vite config file, we add a proxy config to run the backend and frontend on the same port.
+	This is to avoid CORS issues.
+

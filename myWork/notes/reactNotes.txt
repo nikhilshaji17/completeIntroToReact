@@ -39,3 +39,6 @@ You can combine multiple hooks to create your own custom hook.
 It is recommended to keep custom hooks as separate files to allow easy testing.
 	If you component and code is simple however, it is acceptable to combine them.
 
+We can use the useDebugValue hook to see the value that has been returned by a Hook, custom hooks in particular.
+	Use this instead of console.log()
+

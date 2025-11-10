@@ -28,3 +28,14 @@ The second param decides how many times the first param/function is called. The 
 NOTE: useEffect always expects an undefined or a cleanup function as its return value. So we cannot use an async function
 	(as it will return a Promise).
 
+Use keys to keep track of rendering order. This way, you do not have to rerender the entire component, rather
+	React can just reorder the things that need to be switched around.
+
+StrictMode gives you warnings as to whether or not the features you are using are going to be 
+	deprecated and so on.
+
+Custom Hooks:
+You can combine multiple hooks to create your own custom hook.
+It is recommended to keep custom hooks as separate files to allow easy testing.
+	If you component and code is simple however, it is acceptable to combine them.
+

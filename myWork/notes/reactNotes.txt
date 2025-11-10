@@ -10,3 +10,21 @@ Anything that starts with use.. is a hook.
 Never use Hooks inside conditionals. This would mess up React's rendering order.
 Never use inside for, while loops, if conditions and so on.
 
+NOTE: Vite is responsible for the jsx to js translation. So you'll have to build using Vite 
+	for your program to work.
+
+useState:
+Allows you to control the state of your application
+State = data that can change over time and make your component rerender.
+
+useEffect:
+Effects stand for side effects. 
+Suppose you have a component that depends on external data, like a component that depends on an API
+request. We would use useEffect here.
+
+useEffect(fetchPizzaTypes(), [pizzaSize]); // This would only call fetchPizzaTypes() each time pizzaSize changes.
+The second param decides how many times the first param/function is called. The second param is called your dependencies.
+
+NOTE: useEffect always expects an undefined or a cleanup function as its return value. So we cannot use an async function
+	(as it will return a Promise).
+

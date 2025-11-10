@@ -1,11 +1,40 @@
 import Pizza from "./Pizza";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const intl = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
 
 export default function Order() {
   //   const pizzaType = "pepperoni";
   //   const pizzaSize = "M";
   const [pizzaType, setPizzaType] = useState("pepperoni");
   const [pizzaSize, setPizzaSize] = useState("M");
+  const [pizzaTypes, setPizzaTypes] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  let price, selectedPizza;
+  if (!loading) {
+    selectedPizza = pizzaTypes.find((pizza) => pizzaType === pizza.id);
+    price = intl.format(
+      selectedPizza.sizes ? selectedPizza.sizes[pizzaSize] : "",
+    );
+  }
+
+  useEffect(() => {
+    fetchPizzaTypes();
+  }, []);
+
+  async function fetchPizzaTypes() {
+    const pizzasRes = await fetch("/api/pizzas");
+    const pizzasJson = await pizzasRes.json();
+    setPizzaTypes(pizzasJson);
+    setLoading(false);
+  }
+
+  // fetchPizzaTypes(); // Calling it like this is a bad idea, since it would run for every component render.
+  // useEffect(fetchPizzaTypes(), [pizzaSize]); // This would only call fetchPizzaTypes() each time pizzaSize changes.
 
   return (
     <div className="order">
@@ -21,9 +50,11 @@ export default function Order() {
               name="pizza-type"
               value={pizzaType}
             >
-              <option value="pepperoni">The Pepperoni Pizza</option>
-              <option value="hawaiian">The Hawaiian Pizza</option>
-              <option value="big_meat">The Big Meat Pizza</option>
+              {pizzaTypes.map((pizza) => (
+                <option key={pizza.id} value={pizza.id}>
+                  {pizza.name}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -75,14 +106,18 @@ export default function Order() {
           </div>
           <button type="submit">Add to Cart</button>
         </div>
-        <div className="order-pizza">
-          <Pizza
-            name="pepperoni"
-            description="another pep pizza"
-            image="/public/pizzas/pepperoni.webp"
-          />
-          <p>$13.37</p>
-        </div>
+        {loading ? (
+          <h1>Loading Pizzas</h1>
+        ) : (
+          <div className="order-pizza">
+            <Pizza
+              name={selectedPizza.name}
+              description={selectedPizza.description}
+              image={selectedPizza.image}
+            />
+            <p>{price}</p>
+          </div>
+        )}
       </form>
     </div>
   );

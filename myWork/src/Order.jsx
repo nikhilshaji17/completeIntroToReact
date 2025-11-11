@@ -16,6 +16,21 @@ export default function Order() {
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  async function checkout() {
+    setLoading(true);
+
+    await fetch("/api/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ cart }),
+    });
+
+    setCart([]);
+    setLoading(false);
+  }
+
   let price, selectedPizza;
   if (!loading) {
     selectedPizza = pizzaTypes.find((pizza) => pizzaType === pizza.id);
@@ -34,9 +49,6 @@ export default function Order() {
     setPizzaTypes(pizzasJson);
     setLoading(false);
   }
-
-  // fetchPizzaTypes(); // Calling it like this is a bad idea, since it would run for every component render.
-  // useEffect(fetchPizzaTypes(), [pizzaSize]); // This would only call fetchPizzaTypes() each time pizzaSize changes.
 
   return (
     <div className="order-page">
@@ -131,7 +143,11 @@ export default function Order() {
           )}
         </form>
       </div>
-      {loading ? <h2>Loading ...</h2> : <Cart cart={cart} />}
+      {loading ? (
+        <h2>Loading ...</h2>
+      ) : (
+        <Cart checkout={checkout} cart={cart} />
+      )}
     </div>
   );
 }

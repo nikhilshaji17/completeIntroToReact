@@ -1,0 +1,48 @@
+useState:
+Allows you to control the state of your application
+State = data that can change over time and make your component rerender.
+
+useEffect:
+Effects stand for side effects. 
+Suppose you have a component that depends on external data, like a component that depends on an API
+request. We would use useEffect here.
+
+useEffect(fetchPizzaTypes(), [pizzaSize]); // This would only call fetchPizzaTypes() each time pizzaSize changes.
+The second param decides how many times the first param/function is called. The second param is called your dependencies.
+
+NOTE: useEffect always expects an undefined or a cleanup function as its return value. So we cannot use an async function
+	(as it will return a Promise).
+
+Use keys to keep track of rendering order. This way, you do not have to rerender the entire component, rather
+	React can just reorder the things that need to be switched around.
+
+StrictMode gives you warnings as to whether or not the features you are using are going to be 
+	deprecated and so on.
+
+Custom Hooks:
+You can combine multiple hooks to create your own custom hook.
+It is recommended to keep custom hooks as separate files to allow easy testing.
+	If you component and code is simple however, it is acceptable to combine them.
+
+We can use the useDebugValue hook to see the value that has been returned by a Hook, custom hooks in particular.
+	Use this instead of console.log()
+
+We use form.preventDefault() to prevent the page from refreshing while submitting a form.
+
+One-way data flow:
+	When data flows from the parent component to the child. Modifications done
+	to this would not affect the parent.
+
+	However, if you want to affect the parent from the child, you can pass the child
+	a function.
+
+useContext:
+
+Use this very sparingly.
+Props pass from parent to child, and the flow of data is very explicit.
+
+Context on the other hand is like a global variable.
+Use this when you have a piece of data that you want to pass everywhere, 
+  like a user that just logged in. This information matters to every component.
+
+Use context for app level state, not view level state 

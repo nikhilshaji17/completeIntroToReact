@@ -45,4 +45,15 @@ Context on the other hand is like a global variable.
 Use this when you have a piece of data that you want to pass everywhere, 
   like a user that just logged in. This information matters to every component.
 
-Use context for app level state, not view level state 
+Use context for app level state, not view level state.
+It is a good habit to create a contexts.jsx file where all our contexts are stored.
+
+export const CartContext = createContext([ [], function() {} ]); 
+A hook returns an array back to us.
+The createContext function takes a list of inputs it is expected to receive. Although
+	it can work without it, this is good practice for TypeScript.
+
+<CartContext.Provider> <CartContext.Provider /> :
+	Wrapping components in this makes it such that all the components within it
+	would have access to that context.
+

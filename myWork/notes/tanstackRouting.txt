@@ -25,3 +25,14 @@ Tanstack manages caching by checking if the data you requested already exists,
   and returns it if it does. If not, it sends a request.
 
 
+function PastOrdersRoute() {
+  const [page, setPage] = useState(1);
+  const {isLoading, data} = useQuery({
+    queryKey:['past-orders', page],
+    queryFn: () => getPastOrders(page),
+    staleTime: 30000
+  });
+}
+
+This is how we use the tanstack useQuery function.
+

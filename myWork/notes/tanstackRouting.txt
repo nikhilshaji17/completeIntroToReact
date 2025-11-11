@@ -16,3 +16,12 @@ The <Outlet /> component exists to let tanstack know that this area is going to 
 Link's are just anchor tags, but instead of refreshing the whole page, they 
   do a client side redirect.
 
+Tanstack query:
+Makes caching API requests very simple.
+It automates caching logic, handling cache expiry, and hydration, without 
+  us having to manually write down that logic.
+
+Tanstack manages caching by checking if the data you requested already exists, 
+  and returns it if it does. If not, it sends a request.
+
+

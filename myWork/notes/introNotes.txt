@@ -119,3 +119,8 @@ Notice the h1 is a lower case tag, and our component is upper case. This is comp
 In our Vite config file, we add a proxy config to run the backend and frontend on the same port.
 	This is to avoid CORS issues.
 
+SPA = Single Page Application
+This will load up the entire site at once, and when the user clicks a redirect,
+	it immediately displays it to them (client-side routing) as opposed to asking
+	the server yet again.
+

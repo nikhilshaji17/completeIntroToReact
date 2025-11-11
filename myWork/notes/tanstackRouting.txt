@@ -1,0 +1,18 @@
+They focus on client-side React routing, and this is the primary use case.
+
+React Router focuses equally on server-side and client-side routing.
+
+filename.lazy.jsx => This lets tanstack know the file is to be lazy-loaded.
+  lazy-loading only happens when a user clicks on the relevant web-page.
+
+  <Header />
+  <Outlet />
+  <PizzaOfTheDay />
+
+The <Outlet /> component exists to let tanstack know that this area is going to have 
+  different components at different times. Our earlier implementation displayed 
+  a fixed component.
+
+Link's are just anchor tags, but instead of refreshing the whole page, they 
+  do a client side redirect.
+

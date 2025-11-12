@@ -1,0 +1,5 @@
+General rule of thumb is:
+1. Tests should fail fast
+2. Tests should fail loud
+3. Tests should test something important.
+

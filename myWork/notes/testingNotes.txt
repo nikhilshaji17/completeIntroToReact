@@ -3,3 +3,9 @@ General rule of thumb is:
 2. Tests should fail loud
 3. Tests should test something important.
 
+Vitest finds its tests in two ways:
+1. By finding the folder named __tests__
+2. By finding files with the name filename.test.jsx
+
+Both are the naming conventions accepted by Vitest
+

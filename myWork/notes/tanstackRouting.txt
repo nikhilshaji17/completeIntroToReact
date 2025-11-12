@@ -39,3 +39,5 @@ queryKey: Name of the key in cache
 queryFn: The function to get the relevant data
 staleTime: The amount of milliseconds before cache stales.
 
+tanstack packs all your GET, POST, PUT, UPDATE requests into useMutation.
+

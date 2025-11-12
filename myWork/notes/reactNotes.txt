@@ -23,3 +23,6 @@ Class Components and Error Boundaries:
 
 We cannot use Hooks with Class Components.
 
+Usually we use uncontrolled forms. This means, let the browser handle all the 
+	form details, and we handle the onSubmit() event.
+

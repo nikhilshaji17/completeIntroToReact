@@ -16,7 +16,7 @@ function ErrorBoundaryWrappedPastOrderRoutes() {
     <ErrorBoundary>
       <PastOrdersRoute />
     </ErrorBoundary>
-  )
+  );
 }
 
 function PastOrdersRoute() {

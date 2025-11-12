@@ -4,7 +4,7 @@ const intl = new Intl.NumberFormat("en-US", {
 });
 
 export const priceConvertor = (price) => {
-  return (intl.format(price));
+  return intl.format(price);
 };
 
 export default function useCurrency(price) {

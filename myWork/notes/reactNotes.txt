@@ -19,3 +19,7 @@ These allow you to render additional information depending on what is currently 
 	Example: Your main react page would render, and depending on the info there
 						you can use a portal to render the respective side bar.
 
+Class Components and Error Boundaries:
+
+We cannot use Hooks with Class Components.
+

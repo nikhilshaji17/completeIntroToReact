@@ -35,4 +35,7 @@ function PastOrdersRoute() {
 }
 
 This is how we use the tanstack useQuery function.
+queryKey: Name of the key in cache
+queryFn: The function to get the relevant data
+staleTime: The amount of milliseconds before cache stales.
 

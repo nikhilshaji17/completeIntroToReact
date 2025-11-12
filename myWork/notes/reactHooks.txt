@@ -57,3 +57,20 @@ The createContext function takes a list of inputs it is expected to receive. Alt
 	Wrapping components in this makes it such that all the components within it
 	would have access to that context.
 
+
+UseRef:
+
+useRef lets you keep a value between re-renders
+	but without causing a re-render when that value changes.
+
+const elRef = useRef(null);
+  if (!elRef.current) {
+    elRef.current = document.createElement("div");
+  }
+
+By using the if condition in the example above, we only create a single div,
+	instead of constantly making multiple divs.
+
+return () => modalRoot.removeChild(elRef.current);
+We use this to clean up and prevent memory leaks.
+

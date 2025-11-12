@@ -12,3 +12,10 @@ Never use inside for, while loops, if conditions and so on.
 
 NOTE: Vite is responsible for the jsx to js translation. So you'll have to build using Vite 
 	for your program to work.
+
+Portals:
+These allow you to render additional information depending on what is currently being rendered
+	on screen. 
+	Example: Your main react page would render, and depending on the info there
+						you can use a portal to render the respective side bar.
+

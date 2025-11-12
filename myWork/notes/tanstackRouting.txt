@@ -41,3 +41,5 @@ staleTime: The amount of milliseconds before cache stales.
 
 tanstack packs all your GET, POST, PUT, UPDATE requests into useMutation.
 
+Use mutations if the state of the server ends up changing. Use queries if you just want to
+get data back.

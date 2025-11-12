@@ -26,3 +26,7 @@ We cannot use Hooks with Class Components.
 Usually we use uncontrolled forms. This means, let the browser handle all the 
 	form details, and we handle the onSubmit() event.
 
+We use uncontrolled forms if the form never changes. For example, sometimes depending
+	on the choice a user makes (like country: UAE), we will need to change the form dynamically 
+	(city: Abu Dhabi, Dubai) etc. In this case, we use a controlled form.
+

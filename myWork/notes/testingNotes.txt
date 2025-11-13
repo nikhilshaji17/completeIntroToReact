@@ -22,3 +22,6 @@ The next time you render the same component is rendered, if anything changes,
 Snapshot testing is okay to use for UI displays, but not for any of the logic that
   happens in the background.
 
+Coverage: What files are tested, what files are not, what lines are tested 
+  and what lines are not.
+

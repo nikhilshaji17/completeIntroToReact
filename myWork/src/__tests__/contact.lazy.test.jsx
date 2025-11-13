@@ -3,11 +3,10 @@ import { expect, test, vi } from "vitest";
 import createFetchMock from "vitest-fetch-mock";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { Route } from "../routes/contact.lazy";
-import { ScrollRestoration } from "@tanstack/react-router";
 
 const queryClient = new QueryClient();
 
-const fetchMocker = createFetchMock(vi);
+const fetchMocker = createFetchMock(vi); // Called monkey patching
 fetchMocker.enableMocks(); // This allows us to fake calls of the fetch() function
 
 test("can submit contact form", async () => {
@@ -45,7 +44,7 @@ test("can submit contact form", async () => {
   expect(fetchMocker).toHaveBeenCalledWith("/api/contact", {
     body: JSON.stringify(testData),
     headers: {
-      "Content-Type" : "application/json"
+      "Content-Type": "application/json",
     },
     method: "POST",
   });

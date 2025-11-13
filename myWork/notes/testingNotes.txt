@@ -12,3 +12,9 @@ Both are the naming conventions accepted by Vitest
 npm i -D vitest-fetch-mock@0.3.0 => To mock API requests.
 
 Mocking = for API requests
+
+Snapshot testing:
+A low effort, low-confidence method of testing.
+It renders a component, and remembers that result.
+The next time you render the same component is rendered, if anything changes, 
+  then the test fails.

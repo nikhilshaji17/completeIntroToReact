@@ -18,3 +18,7 @@ A low effort, low-confidence method of testing.
 It renders a component, and remembers that result.
 The next time you render the same component is rendered, if anything changes, 
   then the test fails.
+
+Snapshot testing is okay to use for UI displays, but not for any of the logic that
+  happens in the background.
+

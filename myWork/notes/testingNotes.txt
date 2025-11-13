@@ -9,3 +9,6 @@ Vitest finds its tests in two ways:
 
 Both are the naming conventions accepted by Vitest
 
+npm i -D vitest-fetch-mock@0.3.0 => To mock API requests.
+
+Mocking = for API requests
